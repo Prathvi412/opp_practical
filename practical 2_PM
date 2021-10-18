@@ -1,0 +1,76 @@
+#include<iostream>
+using namespace std;
+class bank{
+char a_name[20],a_number[20], a_type[10];
+float balance;
+public:
+ void input()
+ {
+ cout<<" Enter the following Details:";
+ cout<<"\n Enter the name:";
+ gets(a_name);
+ cout<<"\n Enter the Account number:";
+ gets(a_number);
+ cout<<"\n Enter the Account type:";
+ cin>>a_type;
+ cout<<"\n Enter the Balance:";
+ cin>>balance;
+ }
+ void deposit();
+ void withdraw();
+ void output();
+};
+void bank::deposit()
+{
+ int d_amount;
+ cout<<"\n Enter the deposit amount";
+ cin>>d_amount;
+ balance=balance+d_amount;
+ // balance +=d_amount;
+}
+void bank::withdraw()
+{
+ int w_amount;
+ cout<<"\n Enter the withdrawl amount";
+ cin>>w_amount;
+ balance=balance-w_amount;
+ // balance +=d_amount;
+}
+void bank::output()
+{
+ cout<<"\n * Account Details:*";
+ cout<<"\n name:";
+ puts(a_name);
+ cout<<"\n the Account number:";
+ puts(a_number);
+ cout<<"\n the Account type:"<<a_type;
+ cout<<"\n the Balance:"<<balance;
+}
+int main()
+{
+ bank B;
+ int ch;
+ B.input();
+ do{
+ cout<< "\n 1. Deposit";
+ cout<<"\n 2. Withdraw";
+ cout<<"\n 3.exit";
+ cout<<"\n Enter the choice";
+ cin>>ch;
+ switch(ch)
+ {
+ case 1:
+ B.deposit();
+ B.output();
+ break;
+ case 2:
+ B.withdraw();
+ B.output();
+ case 3:
+ return (0);
+ default:
+ cout<<"\n Wrong choice";
+ }
+ }while(ch!=4);
+ return 0;
+}
